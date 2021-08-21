@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  common_buildonly:
+    image: fsufitch/pasteproxy-python-common
+    build:
+      context: ./common
+
+  scryfalldb_update:
+    image: fsufitch/scryfall-db
+    build:
+      context: ./scryfall-db
+
+  api:
+    image: fsufitch/pasteproxy-api
+    build:
+      context: ./api
+    ports: [ '8080:80' ]
